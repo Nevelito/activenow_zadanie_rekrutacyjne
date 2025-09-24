@@ -1,0 +1,18 @@
+<nav class="bg-white shadow-md px-6 py-0 flex justify-between items-center">
+  <div>
+    <%= image_tag "activenow-logo.png", class: "w-32 h-32 object-contain" %>
+  </div>
+
+  <div class="flex items-center space-x-4">
+    <%= link_to "Projekty", projects_path, class: "flex py-2 px-4 rounded-xl bg-gradient-to-r from-[#7acbd5] to-[#45c7f2] text-white hover:text-black" %>
+  </div>
+
+  <div class="flex items-center space-x-4">
+    <div class="flex flex-col">
+      <h3 class="text-[#47c8f1]">Aktualny użytkownik:</h3>
+      <span class="text-gray-600"><%= current_user.email %></span>
+    </div>
+    <%= link_to "Wyloguj", destroy_user_session_path, data: { turbo_method: :delete },
+                class: "flex px-1 py-6 rounded-xl bg-red-500 text-white hover:text-black" %>
+  </div>
+</nav>

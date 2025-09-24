@@ -1,4 +1,6 @@
-<div>
-  <h1 class="font-bold text-4xl">Projects#new</h1>
-  <p>Find me in app/views/projects/new.html.erb</p>
-</div>
+<%= turbo_frame_tag "modal" do %>
+  <div data-controller="modal" class="fixed inset-0 z-50 flex items-center justify-center">
+    <div data-action="click->modal#hideModal" class="absolute inset-0 bg-black/20"></div>
+    <%= render Projects::FormComponent.new(project: @project, user: @user) %>
+  </div>
+<% end %>

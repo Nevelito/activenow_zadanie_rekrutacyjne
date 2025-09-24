@@ -1,0 +1,14 @@
+<div data-task-id="<%= @task.id %>" draggable="true"
+     class="mb-2 p-3 bg-white rounded shadow flex items-center justify-between cursor-move">
+  <div class="flex-shrink-0">
+    <%= image_tag "activenow-logo.png", class: "w-12 h-12 object-contain" %>
+  </div>
+  <div class="flex-1 mx-3 text-gray-800 font-medium truncate">
+    <%= @task.title %>
+  </div>
+  <%= link_to project_task_path(@task.project, @task),
+              data: { turbo_frame: "modal" },
+              class: "flex-shrink-0 hover:scale-110 transition-transform" do %>
+    <%= image_tag "menu_burger.svg", class: "w-6 h-6 text-gray-600" %>
+  <% end %>
+</div>

@@ -22,8 +22,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="">
+  <body class="h-screen">
+    <%= turbo_frame_tag :modal %>
+    <% if user_signed_in? %>
+      <%= render "shared/topbar" %>
+    <% end %>
+    <main class="bg-[#e2eef5]">
       <%= yield %>
     </main>
   </body>

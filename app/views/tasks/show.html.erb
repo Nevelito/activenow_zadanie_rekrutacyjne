@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "modal" do %>
+  <div data-controller="modal" class="fixed inset-0 z-50 flex items-center justify-center">
+    <div
+      data-action="click->modal#hideModal"
+      class="absolute inset-0 bg-black/20">
+    </div>
+    <%= render(Tasks::ShowComponent.new(task: @task)) %>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "modal" do %>
   <div data-controller="modal" class="fixed inset-0 z-50 flex items-center justify-center">
     <div data-action="click->modal#hideModal" class="absolute inset-0 bg-black/20"></div>
-    <%= render Projects::FormComponent.new(project: @project, user: @user) %>
+    <%= render Tasks::FormComponent.new(task: @task, project: @project, title: "Edytuj zadanie") %>
   </div>
 <% end %>
