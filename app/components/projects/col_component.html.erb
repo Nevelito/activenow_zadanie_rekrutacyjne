@@ -1,0 +1,16 @@
+<div class="bg-gray-100 rounded-lg"
+     data-kanban-target="column"
+     data-status="<%= @status %>"
+     data-project-id="<%= @project.id %>">
+  <div class="flex flex-col p-4 rounded-t-lg bg-gradient-to-r from-[#7acbd5] to-[#45c7f2] items-center justify-center">
+    <h2 class="font-bold mb-4"><%= @title %></h2>
+    <span data-kanban-target="count">
+      Ilość zadań: <%= @project.tasks.send(@status).count %>
+    </span>
+  </div>
+  <div id="tasks-list" data-kanban-target="tasks" class="p-4">
+    <% @project.tasks.send(@status).each do |task| %>
+      <%= render(Tasks::TileComponent.new(task: task)) %>
+    <% end %>
+  </div>
+</div>

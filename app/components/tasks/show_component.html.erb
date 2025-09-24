@@ -1,0 +1,23 @@
+<div class="bg-white rounded-xl shadow-lg w-96 p-6 z-10">
+  <div class="flex justify-center mb-4">
+    <%= image_tag "activenow-logo.png", class: "w-16 h-16 object-contain" %>
+  </div>
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="text-xl font-bold text-gray-800"><%= @task.title %></h2>
+    <div class="flex space-x-2">
+      <%= link_to edit_project_task_path(@task.project, @task),
+                  class: "hover:scale-110 transition-transform" do %>
+        <%= image_tag "pen.svg", class: "w-6 h-6" %>
+      <% end %>
+
+      <%= link_to project_task_path(@task.project, @task),
+                  data: { turbo_method: :delete, confirm: "Na pewno chcesz usunąć?" },
+                  class: "hover:scale-110 transition-transform" do %>
+        <%= image_tag "trash_can.svg", class: "w-6 h-6" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="text-gray-700">
+    <p><%= @task.description %></p>
+  </div>
+</div>

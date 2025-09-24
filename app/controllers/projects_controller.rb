@@ -2,9 +2,10 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project, only: %i[show edit update destroy]
   def index
-    @projects = current_user.projects
-                            .where("name ILIKE ?", "%#{params[:q]}%")
-                            .order(created_at: :desc)
+    @projects = current_user.projects.order(created_at: :desc)
+    if params[:q].present?
+      @projects = @projects.where("name ILIKE ?", "%#{params[:q]}%")
+    end
   end
 
   def show
@@ -19,7 +20,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.build(project_params)
 
     if @project.save
-      redirect_to @project, notice: "Project was successfully created."
+      redirect_to projects_path, notice: "Project was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +31,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to @project, notice: "Project was successfully updated."
+      redirect_to projects_path, notice: "Project was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end

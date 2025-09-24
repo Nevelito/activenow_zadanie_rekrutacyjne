@@ -1,0 +1,15 @@
+<div class="overflow-y-auto p-6">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Projekty</h1>
+    <%= link_to new_project_path,
+                data: { turbo_frame: "modal" },
+                class: "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition" do %>
+      Dodaj projekt
+    <% end %>
+  </div>
+  <div class="grid grid-cols-4 gap-6">
+    <% @projects.each do |project| %>
+      <%= render(Projects::TileComponent.new(project: project)) %>
+    <% end %>
+  </div>
+</div>

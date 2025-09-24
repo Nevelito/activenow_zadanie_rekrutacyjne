@@ -3,6 +3,17 @@ class TasksController < ApplicationController
   before_action :set_project
   before_action :set_task, only: %i[update destroy]
 
+  def new
+    @task = @project.tasks.build
+  end
+  def show
+    @task = Task.find(params[:id])
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
   def create
     @task = @project.tasks.build(task_params)
 

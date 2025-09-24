@@ -1,0 +1,17 @@
+<div class="bg-white rounded-xl shadow-lg w-96 p-6 z-10">
+  <div class="flex justify-center mb-4">
+    <%= image_tag "activenow-logo.png", class: "w-16 h-16 object-contain" %>
+  </div>
+  <h2 class="text-xl font-bold text-gray-800 mb-4"><%= @project.persisted? ? "Edytuj projekt" : "Dodaj nowy projekt" %></h2>
+  <%= form_with(model: @project, local: true, data: { turbo_frame: "_top" }, html: { class: "w-full" }) do |f| %>
+    <div class="flex flex-col gap-3">
+      <%= f.label :name, "Nazwa projektu" %>
+      <%= f.text_field :name, placeholder: "Wpisz nazwę projektu", class: "w-full border border-neutral-300 h-12 py-2 px-3 rounded-lg focus:outline-none" %>
+    </div>
+
+    <div class="flex w-full justify-end mt-6 space-x-3">
+      <%= button_tag "Anuluj", type: "button", data: { action: "modal#hideModal" }, class: "bg-red-700 text-white px-4 py-2 rounded-lg" %>
+      <%= f.submit @project.persisted? ? "Zapisz zmiany" : "Dodaj projekt", class: "bg-green-700 text-white px-4 py-2 rounded-lg" %>
+    </div>
+  <% end %>
+</div>

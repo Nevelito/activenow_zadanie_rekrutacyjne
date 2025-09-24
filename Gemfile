@@ -42,6 +42,7 @@ gem "thruster", require: false
 gem "devise"
 gem "sidekiq"
 gem "redis"
+gem "view_component", "~> 3.16"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

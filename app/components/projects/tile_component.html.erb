@@ -1,0 +1,23 @@
+<%= button_to project_path(@project),
+              method: :get,
+              class: "w-full h-64 bg-gradient-to-r from-[#7acbd5] to-[#45c7f2] rounded-xl shadow-lg p-4 flex flex-col justify-end cursor-pointer group relative" do %>
+
+  <%= image_tag "activenow-logo.png",
+                class: "absolute top-[-30px] right-2 w-32 h-32 object-contain opacity-80" %>
+
+  <h3 class="text-xl font-bold text-white mb-12 z-10"><%= @project.name %></h3>
+
+  <div class="absolute bottom-4 right-4 flex space-x-3 z-20">
+    <%= link_to edit_project_path(@project),
+                data: { turbo_frame: "modal" },
+                class: "flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 hover:scale-110 transition-transform" do %>
+      <%= image_tag "pen.svg", class: "w-5 h-5" %>
+    <% end %>
+    <%= link_to project_path(@project),
+                data: { turbo_method: :delete, confirm: "Na pewno chcesz usunąć?" },
+                class: "flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-red-700 hover:scale-110 transition-transform" do %>
+      <%= image_tag "trash_can.svg", class: "w-5 h-5" %>
+    <% end %>
+  </div>
+
+<% end %>
