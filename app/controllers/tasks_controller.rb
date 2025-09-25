@@ -18,6 +18,8 @@ class TasksController < ApplicationController
     @task = @project.tasks.build(task_params)
 
     if @task.save
+      TaskDueReminderJob.perform_later(@task.id) if @task.due_date.present?
+
       redirect_to @project, notice: "Task was successfully created."
     else
       render "projects/show", status: :unprocessable_entity
@@ -25,7 +27,13 @@ class TasksController < ApplicationController
   end
 
   def update
+    old_due_date = @task.due_date
+
     if @task.update(task_params)
+      if @task.due_date.present? && @task.due_date != old_due_date
+        TaskDueReminderJob.perform_later(@task.id)
+      end
+
       redirect_to @project, notice: "Task was successfully updated."
     else
       render "projects/show", status: :unprocessable_entity

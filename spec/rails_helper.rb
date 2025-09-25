@@ -11,6 +11,8 @@ require 'rspec/rails'
 require "devise"
 require "view_component/test_helpers"
 require "capybara/rspec"
+require "active_job/test_helper"
+require "action_mailer"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -46,6 +48,7 @@ RSpec.configure do |config|
   config.include ViewComponent::TestHelpers, type: :component
   config.include Capybara::RSpecMatchers, type: :component
   config.include Rails.application.routes.url_helpers, type: :component
+  config.include ActiveJob::TestHelper
 
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

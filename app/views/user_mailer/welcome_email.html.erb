@@ -1,0 +1,44 @@
+<table style="background-color:#f7f7f7; padding:30px 0;">
+  <tr>
+    <td>
+      <table style="background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+        <tr>
+          <td style="padding:20px; background-color:#ffffff; border-bottom:1px solid #eee;">
+            <%= image_tag "activenow-logo.png", alt: "ActiveNow", style: "max-width:200px;" %>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:30px;">
+            <h1 style="color:#333; font-size:22px; margin-bottom:20px;">Cześć <%= @user.email %> 👋</h1>
+            <p style="color:#555; font-size:15px; line-height:1.6; margin-bottom:20px;">
+              Dziękujemy za rejestrację w naszej aplikacji <strong>Task Menager</strong> od <strong>ActiveNow</strong>.
+              Cieszymy się, że do nas dołączyłeś! 🚀
+            </p>
+
+            <p style="color:#555; font-size:15px; line-height:1.6; margin-bottom:30px;">
+              Aby rozpocząć korzystanie, kliknij poniższy przycisk:
+            </p>
+
+            <p style="text-align:center; margin-bottom:30px;">
+              <a href="<%= @url %>"
+                 style="display:inline-block; background-color:#007BFF; color:#fff; text-decoration:none; font-weight:bold; padding:12px 24px; border-radius:6px;">
+                Zaloguj się
+              </a>
+            </p>
+
+            <p style="color:#999; font-size:12px; line-height:1.4; text-align:center;">
+              Jeśli nie zakładałeś konta w ActiveNow, zignoruj tę wiadomość.
+            </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:20px; background-color:#fafafa; border-top:1px solid #eee; font-size:12px; color:#999;">
+            © <%= Date.today.year %> ActiveNow. Wszelkie prawa zastrzeżone.
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
