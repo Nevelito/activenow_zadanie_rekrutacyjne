@@ -49,8 +49,7 @@
 ![Landing page](app/assets/images/readme/due_soon_email_preview.png)
 
 ### Video preview
-![Kliknij tutaj](https://www.youtube.com/watch?v=EcbzfssJCmM)
-
+https://www.youtube.com/watch?v=EcbzfssJCmM
 ---
 
 ## ⚙️ Technical Setup
