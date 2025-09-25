@@ -14,11 +14,11 @@ RSpec.describe TaskMailer, type: :mailer do
     end
 
     it "sends to correct user" do
-      expect(mail.to).to eq([user.email])
+      expect(mail.to).to eq([ user.email ])
     end
 
     it "sets correct from user" do
-      expect(mail.from).to eq(["no-reply@activenow.com"])
+      expect(mail.from).to eq([ "no-reply@activenow.com" ])
     end
 
     it "contains task title" do
