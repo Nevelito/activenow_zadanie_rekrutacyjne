@@ -1,4 +1,4 @@
-# Task Menager dla ActiveNow
+# Task Menager for ActiveNow
 
 ## 🛠️ Technologies
 
